@@ -1,0 +1,23 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building project..."
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+                sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deploying application..."
+                // Add your deployment steps here, like copying artifacts to a server 
+            }
+        }
+    }
+}
